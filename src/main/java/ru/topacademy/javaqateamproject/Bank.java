@@ -1,4 +1,4 @@
-package ru.netology.javaqadiplom;
+package ru.topacademy.javaqateamproject;
 
 public class Bank {
 

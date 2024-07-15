@@ -1,5 +1,5 @@
 
-package ru.netology.javaqadiplom;
+package ru.topacademy.javaqateamproject;
 
 /**
  * Сберегательный счёт

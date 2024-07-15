@@ -1,5 +1,4 @@
-
-package ru.netology.javaqadiplom;
+package ru.topacademy.javaqateamproject;
 
 /**
  * Кредитный счёт
