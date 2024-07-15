@@ -17,4 +17,44 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(3_000, account.getBalance());
     }
+    @Test
+    public void testConstructorNegativeRateThrowsException() {
+        new CreditAccount(100, 1000, -5);
+    }
+
+    @Test
+    public void testPayPositiveAmountReducesBalance() {
+        CreditAccount account = new CreditAccount(100, 1000, 5);
+        account.pay(50);
+        Assertions.assertEquals(50, account.getBalance());
+
+    }
+
+    @Test
+    public void testPayNegativeAmountReturnsFalse() {
+        CreditAccount account = new CreditAccount(100, 1000, 5);
+        account.pay(-50);
+        Assertions.assertEquals(100, account.getBalance());
+    }
+
+    @Test
+    public void testPayAmountGreaterThanBalanceReturnsFalse() {
+        CreditAccount account = new CreditAccount(100, 1000, 5);
+        account.pay(150);
+        Assertions.assertEquals(100, account.getBalance());
+    }
+
+    @Test
+    public void testPayAmountEqualsCreditLimitReturnsTrue() {
+        CreditAccount account = new CreditAccount(100, 1000, 5);
+        account.pay(1100);
+        Assertions.assertEquals(-1000, account.getBalance());
+    }
+
+    @Test
+    public void testPayAmountGreaterThanCreditLimitReturnsFalse() {
+        CreditAccount account = new CreditAccount(100, 1000, 5);
+        account.pay(1200);
+        Assertions.assertEquals(100, account.getBalance());
+    }
 }
