@@ -110,4 +110,15 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(balance, account.getBalance());
     }
+
+    // Проверяет,что метод yearChange возвращает 0, когда баланс счета отрицательный.
+    @Test
+    public void testYearChangeWithNegativeBalance() {
+        int balance = - 2000;
+        int rate = 15;
+
+        SavingAccount account = new SavingAccount(balance,1000,10000,15);
+
+        Assertions.assertEquals(0, account.yearChange());
+    }
 }
