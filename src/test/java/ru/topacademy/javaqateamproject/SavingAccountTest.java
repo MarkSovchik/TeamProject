@@ -28,7 +28,8 @@ public class SavingAccountTest {
 
         Assertions.assertFalse(result);
     }
-
+    
+    //Проверяет,что баланс счета не изменяется,если пополнить счет на сумму,превышающую максимальный баланс. 
     @Test
     public void shouldNotAddExceedingMaxBalanceBalanceUnchanged() {
         SavingAccount account = new SavingAccount(9000, 1000, 10000, 5);
