@@ -96,4 +96,18 @@ public class SavingAccountTest {
 
         Assertions.assertEquals("Начальный баланс не может быть больше максимального баланса, а у вас: 15000", exception.getMessage());
     }
+
+     // Проверяет,что баланс не изменяется,если метод pay возвращает false.
+    @Test
+    public void testBalanceUnchangedWhenPayFails() {
+        int balance = 2000;
+        int minimumBalance = 1000;
+        int amountToPay = 1500;
+
+        SavingAccount account = new SavingAccount(balance, minimumBalance, 10000, 5);
+
+        account.pay(amountToPay);
+
+        Assertions.assertEquals(balance, account.getBalance());
+    }
 }
