@@ -57,4 +57,8 @@ public class CreditAccountTest {
         account.pay(1200);
         Assertions.assertEquals(100, account.getBalance());
     }
+    @Test
+    public void testCreditAccountCreationWithZeroRate() {
+        Assertions.assertDoesNotThrow(() -> new CreditAccount(1000, 5000, 0));
+    }
 }
