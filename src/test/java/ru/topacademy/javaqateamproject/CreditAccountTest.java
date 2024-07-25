@@ -70,4 +70,13 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+     // Метод yearChange должен возвращать 0 для положительного баланса при любой ставке.
+    public void testYearChangeWithPositiveBalance() {
+        CreditAccount account = new CreditAccount(200, 5000, 15);
+        int actual = account.yearChange();
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual, "Метод yearChange должен возвращать 0 для положительного баланса при любой ставке");
+    }
 }
