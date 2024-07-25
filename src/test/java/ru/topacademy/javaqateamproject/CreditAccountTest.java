@@ -61,4 +61,13 @@ public class CreditAccountTest {
     public void testCreditAccountCreationWithZeroRate() {
         Assertions.assertDoesNotThrow(() -> new CreditAccount(1000, 5000, 0));
     }
+     @Test
+    public void testPayExceedingCreditLimitBalanceUnchanged() {
+        CreditAccount account = new CreditAccount(1000, 5000, 10);
+        account.pay(7000);
+        int actual = account.getBalance();
+        int expected = 1000;
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
